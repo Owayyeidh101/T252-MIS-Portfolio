@@ -1,9 +1,11 @@
 # T252 MIS Portfolio (KFUPM)
 
-This repository documents selected technical coursework from Term 252.
+This repository showcases selected technical coursework from Term 252 as part of my MIS program at KFUPM.
+
+---
 
 ## Focus Areas
-- Data Science (ISE291)
+- Data Science & Analytics (ISE291)
 - Database Design & SQL (MIS311)
 
 ---
@@ -12,16 +14,22 @@ This repository documents selected technical coursework from Term 252.
 ### ISE291 – Telco Customer Churn Analysis
 A full data science project analyzing customer churn behavior in the telecom industry.
 
-**Key stages:**
+**Project workflow:**
 - Problem definition & hypothesis formulation
-- Data cleaning & preprocessing
+- Data collection and cleaning
 - Exploratory Data Analysis (EDA)
-- Modeling & insights (in progress)
+- Modeling and insights (in progress)
 
 ---
 
-## Tools Used
-- Python (pandas, numpy)
-- Jupyter Notebook
-- Excel
-- SQL (planned)
+## Repository Structure
+
+```text
+ISE291-data-science/
+├─ Milestone 1 - Proposal/
+├─ Milestone 2 - Data Cleaning/
+├─ Milestone 3 - EDA/
+├─ data/
+└─ final-project/
+
+MIS311-Data-Management/
