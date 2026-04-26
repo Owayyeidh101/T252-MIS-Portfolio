@@ -1,9 +1,3 @@
-
----
-
-## 2. `data/README.md`
-
-```md
 # Dataset – Telco Customer Churn
 
 ## Overview
