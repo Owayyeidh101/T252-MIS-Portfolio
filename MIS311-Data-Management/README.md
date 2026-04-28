@@ -122,27 +122,6 @@ The system includes queries designed to support operational insights:
 
 ---
 
-## Project Structure
-MIS311-Data-Management/
-│
-├── ERD/
-│ └── PlantMaintenance_ERD_Final.png
-│
-├── Normalization/
-│ └── FD_Diagram_Final.png
-│
-├── SQL/
-│ ├── create_tables.sql
-│ ├── insert_data.sql
-│ └── queries.sql
-│
-├── Report/
-│ └── Final_Report.docx
-│
-└── README.md
-
----
-
 ## Conclusion
 
 This project demonstrates the application of database design principles to a realistic operational scenario. By structuring data into normalized relations and implementing it using SQL, the system ensures data integrity, reduces redundancy, and supports efficient maintenance management.
