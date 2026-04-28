@@ -1,109 +1,150 @@
-# Project Overview
+# MIS311 Database Project — Plant Maintenance & Work Order Management System
 
-This project designs a relational database for a **Plant Maintenance & Work Order Management System**. The system is intended to support maintenance operations in an industrial plant environment by organizing data related to equipment, maintenance activities, technicians, and spare parts.
+## Project Overview
 
-The database enables efficient tracking of:
+This project was completed as part of the MIS 311 – Business Data Management course. The objective is to design and implement a relational database system that supports maintenance operations within an industrial plant environment.
 
-- Equipment and their locations within the plant
-- Maintenance work orders and their status
-- Technician assignments
-- Spare parts usage and inventory
-- Maintenance types and classifications
-
-The goal is to design a normalized database (up to **3NF**) and implement it using SQL, along with meaningful queries that support operational decision-making.
+The project focuses on translating operational requirements into a structured database design, including entity modeling, normalization up to Third Normal Form (3NF), and SQL implementation. The system enables efficient management of maintenance activities, equipment tracking, technician assignments, and spare parts usage.
 
 ---
 
-# System Description
+## Objectives
 
-The system represents a structured approach to managing maintenance operations within a plant. Each piece of equipment is located in a specific plant area and may require maintenance over time.
-
-When an issue occurs or maintenance is scheduled:
-
-- A work order is created for a specific piece of equipment
-- The work order is categorized by a maintenance type (e.g., preventive, corrective)
-- One or more technicians are assigned to the work order
-- The work order may require multiple spare parts
-- Spare parts are supplied by suppliers
-
-The system allows tracking of:
-
-- Which equipment is frequently maintained
-- Which technicians are assigned to tasks
-- What parts are used and when
-- Inventory levels of parts
-- Status of maintenance activities
-
-This structured database design helps reduce manual tracking errors and improves visibility into plant operations.
+* Design a structured relational database based on defined business rules  
+* Apply normalization techniques up to 3NF to eliminate redundancy  
+* Implement the database using SQL (DDL and DML)  
+* Develop queries to support operational decision-making  
 
 ---
 
-# Assumptions
+## System Description
 
-- Each equipment belongs to only one plant area
-- Each work order is created for one specific equipment
-- Each work order has one maintenance type
-- A technician can work on multiple work orders
-- A work order can have multiple technicians
-- A work order can use multiple parts
-- A part can be used in multiple work orders
-- Each part is supplied by one supplier
-- Each supplier can supply multiple parts
-- Inventory tracking is simplified (no historical stock tracking)
+The system models maintenance operations within a plant where equipment is organized by plant areas and requires periodic or corrective maintenance.
 
----
+When maintenance is required:
 
-# Business Rules
+* A work order is created for a specific equipment  
+* The work order is classified by a maintenance type (e.g., preventive, corrective)  
+* One or more technicians are assigned to perform the task  
+* Spare parts may be used during maintenance  
+* Parts are supplied by external suppliers  
 
-1. Each **plant area** can contain many pieces of equipment.
-2. Each **equipment** belongs to exactly one plant area.
+The system supports tracking of:
 
-3. Each **equipment** can have many work orders.
-4. Each **work order** is created for exactly one equipment.
-
-5. Each **work order** must have one maintenance type.
-6. Each **maintenance type** can be associated with many work orders.
-
-7. Each **work order** can be assigned to one or more technicians.
-8. Each **technician** can work on one or more work orders.
-   → This represents a **many-to-many relationship** resolved using an associative entity (**WorkOrderAssignment**).
-
-9. Each **work order** can use one or more spare parts.
-10. Each **part** can be used in one or more work orders.
-   → This represents another **many-to-many relationship** resolved using an associative entity (**WorkOrderPart**).
-
-11. Each **part** is supplied by exactly one supplier.
-12. Each **supplier** can supply many parts.
-
-13. Each **work order** has a status (e.g., Open, In Progress, Completed).
-
-14. Each **part** has a quantity on hand and a minimum required quantity for inventory control.
+* Equipment maintenance frequency  
+* Technician assignments and workload  
+* Spare parts usage and consumption  
+* Inventory levels and shortages  
+* Work order status and progress  
 
 ---
 
-# Main Entities (Planned)
+## Assumptions
 
-- PlantArea
-- Equipment
-- WorkOrder
-- MaintenanceType
-- Technician
-- WorkOrderAssignment (Associative)
-- Part
-- WorkOrderPart (Associative)
-- Supplier
+* Each equipment belongs to a single plant area  
+* Each work order is associated with one equipment  
+* Each work order has one maintenance type  
+* Technicians can be assigned to multiple work orders  
+* Work orders can involve multiple technicians  
+* Work orders can use multiple parts  
+* Parts can be used across multiple work orders  
+* Each part is supplied by one supplier  
+* Inventory is tracked at a basic level without historical logs  
 
 ---
 
-# Project Scope
+## Business Rules
 
-This project includes:
+* A plant area can contain multiple equipment units  
+* Each equipment belongs to one plant area  
 
-- ERD design (conceptual + logical)
-- Normalization up to 3NF
-- Functional dependency diagram
-- SQL table creation scripts
-- Sample data insertion
-- SQL queries for operational insights
+* Equipment can have multiple work orders  
+* Each work order is linked to one equipment  
 
-This project does **not** rely on a real business or interviews and is based on a structured, assumed operational scenario.
+* Each work order must have a maintenance type  
+* Maintenance types can apply to multiple work orders  
+
+* Work orders and technicians have a many-to-many relationship  
+  * Implemented through the associative entity: **WorkOrderAssignment**  
+
+* Work orders and parts have a many-to-many relationship  
+  * Implemented through the associative entity: **WorkOrderPart**  
+
+* Each part is supplied by one supplier  
+* Suppliers can supply multiple parts  
+
+* Each work order has a status (e.g., Open, In Progress, Completed)  
+* Each part tracks quantity on hand and minimum required quantity  
+
+---
+
+## Data Modeling Approach
+
+The database design process followed these steps:
+
+* Identification of entities and attributes  
+* Definition of relationships and cardinalities  
+* Resolution of many-to-many relationships using associative tables  
+* Normalization of all relations up to 3NF  
+* Creation of a functional dependency structure  
+
+---
+
+## Database Implementation
+
+The database was implemented using SQL and includes:
+
+* Table creation using **CREATE TABLE** statements  
+* Definition of primary and foreign key constraints  
+* Data insertion using **INSERT statements**  
+* Enforcement of referential integrity  
+
+---
+
+## SQL Queries
+
+The system includes queries designed to support operational insights:
+
+* Retrieve open work orders and their locations  
+* Count work orders by maintenance type  
+* Calculate total parts cost per work order  
+* Identify equipment with the highest maintenance frequency  
+* Detect parts below minimum inventory levels  
+
+---
+
+## Tools and Technologies
+
+* SQL (Oracle / FreeSQL)  
+* Database Design (ERD, Normalization up to 3NF)  
+* diagrams.net (ERD and functional dependency diagrams)  
+* Git & GitHub (version control and project organization)  
+
+---
+
+## Project Structure
+MIS311-Data-Management/
+│
+├── ERD/
+│ └── PlantMaintenance_ERD_Final.png
+│
+├── Normalization/
+│ └── FD_Diagram_Final.png
+│
+├── SQL/
+│ ├── create_tables.sql
+│ ├── insert_data.sql
+│ └── queries.sql
+│
+├── Report/
+│ └── Final_Report.docx
+│
+└── README.md
+
+---
+
+## Conclusion
+
+This project demonstrates the application of database design principles to a realistic operational scenario. By structuring data into normalized relations and implementing it using SQL, the system ensures data integrity, reduces redundancy, and supports efficient maintenance management.
+
+The resulting database provides a solid foundation for tracking maintenance activities and generating insights that can improve operational performance within an industrial environment.
