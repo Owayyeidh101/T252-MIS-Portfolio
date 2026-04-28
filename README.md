@@ -63,7 +63,8 @@ ISE291-data-science/
 ├─ Milestone 2 - Data Cleaning/
 ├─ Milestone 3 - EDA/
 ├─ data/
-└─ final-project/
+├─ final-project/
+└─ README.md
 
 MIS311-Data-Management/
 ├─ ERD/
