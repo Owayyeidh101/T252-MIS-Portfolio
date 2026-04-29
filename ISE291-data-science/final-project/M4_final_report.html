@@ -1,0 +1,3748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupyter Notebook — generated with runcell</title>
+    <meta name="description" content="Exported with runcell — convert .ipynb notebooks to HTML or PDF anytime at runcell.dev." />
+    <meta name="generator" content="runcell" />
+    <style>
+        :root {
+            --jp-code-font-family: 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+            --jp-content-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            --jp-cell-prompt-width: 64px;
+            --jp-input-prompt-color: #307fc1;
+            --jp-output-prompt-color: #bf5b3d;
+            --jp-cell-input-bg: #f7f7f7;
+            --jp-layout-color0: #ffffff;
+            --jp-layout-color1: #f7f7f7;
+            --jp-border-color1: #e0e0e0;
+            --jp-content-font-color0: #000000;
+            --jp-content-font-color1: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--jp-content-font-family);
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--jp-content-font-color0);
+            background-color: var(--jp-layout-color0);
+            margin: 0;
+            padding: 0;
+        }
+
+        .notebook-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Cell structure */
+        .cell {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .cell-prompt {
+            min-width: var(--jp-cell-prompt-width);
+            width: var(--jp-cell-prompt-width);
+            font-family: var(--jp-code-font-family);
+            font-size: 12px;
+            padding: 10px 8px 10px 0;
+            text-align: right;
+            flex-shrink: 0;
+            user-select: none;
+        }
+
+        .cell-content {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        /* Input prompt styling - Jupyter blue */
+        .input-prompt {
+            color: var(--jp-input-prompt-color);
+            font-weight: bold;
+        }
+
+        /* Output prompt styling - Jupyter red/orange */
+        .output-prompt {
+            color: var(--jp-output-prompt-color);
+            font-weight: bold;
+        }
+
+        /* Code cell input area */
+        .input-area {
+            background-color: var(--jp-cell-input-bg);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 2px;
+            padding: 8px 12px;
+            overflow-x: auto;
+        }
+
+        .input-area pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Output area */
+        .output-area {
+            margin-top: 0;
+        }
+
+        .output-wrapper {
+            display: flex;
+            flex-direction: row;
+            margin-top: 4px;
+        }
+
+        .output-content {
+            flex: 1;
+            min-width: 0;
+            padding: 8px 0;
+        }
+
+        .output-content pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Stream output (stdout/stderr) */
+        .output-stream {
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .output-stderr {
+            background-color: #fdd;
+            padding: 8px 12px;
+            border-radius: 2px;
+        }
+
+        /* Execute result / display data */
+        .output-result {
+            padding: 4px 0;
+        }
+
+        .output-result pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+        }
+
+        /* Image output */
+        .output-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* HTML output (DataFrames, etc.) */
+        .output-html {
+            overflow-x: auto;
+        }
+
+        .output-html table {
+            border-collapse: collapse;
+            font-size: 13px;
+            font-family: var(--jp-content-font-family);
+        }
+
+        .output-html table th,
+        .output-html table td {
+            border: 1px solid #ddd;
+            padding: 6px 10px;
+            text-align: left;
+        }
+
+        .output-html table th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .output-html table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        /* Error output */
+        .output-error {
+            background-color: #fff0f0;
+            padding: 8px 12px;
+            border-radius: 2px;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            white-space: pre-wrap;
+        }
+
+        /* Markdown cell styling */
+        .markdown-cell {
+            padding: 10px 0;
+        }
+
+        .markdown-cell h1 {
+            font-size: 2em;
+            font-weight: 600;
+            margin: 0.67em 0;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid var(--jp-border-color1);
+        }
+
+        .markdown-cell h2 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 0.83em 0;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid var(--jp-border-color1);
+        }
+
+        .markdown-cell h3 {
+            font-size: 1.25em;
+            font-weight: 600;
+            margin: 1em 0;
+        }
+
+        .markdown-cell h4 {
+            font-size: 1em;
+            font-weight: 600;
+            margin: 1.33em 0;
+        }
+
+        .markdown-cell h5 {
+            font-size: 0.875em;
+            font-weight: 600;
+            margin: 1.67em 0;
+        }
+
+        .markdown-cell h6 {
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 2.33em 0;
+            color: #6a737d;
+        }
+
+        .markdown-cell p {
+            margin: 0 0 16px 0;
+            line-height: 1.6;
+        }
+
+        .markdown-cell code {
+            font-family: var(--jp-code-font-family);
+            font-size: 85%;
+            background-color: rgba(27, 31, 35, 0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+
+        .markdown-cell pre {
+            background-color: var(--jp-cell-input-bg);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 3px;
+            padding: 16px;
+            overflow-x: auto;
+            font-size: 85%;
+            line-height: 1.45;
+        }
+
+        .markdown-cell pre code {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+            font-size: 100%;
+        }
+
+        .markdown-cell blockquote {
+            margin: 0 0 16px 0;
+            padding: 0 1em;
+            color: #6a737d;
+            border-left: 4px solid #dfe2e5;
+        }
+
+        .markdown-cell ul,
+        .markdown-cell ol {
+            margin: 0 0 16px 0;
+            padding-left: 2em;
+        }
+
+        .markdown-cell li {
+            margin: 0.25em 0;
+        }
+
+        .markdown-cell a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .markdown-cell a:hover {
+            text-decoration: underline;
+        }
+
+        .markdown-cell hr {
+            border: 0;
+            border-top: 1px solid var(--jp-border-color1);
+            margin: 24px 0;
+        }
+
+        .markdown-cell img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .markdown-cell table {
+            border-collapse: collapse;
+            margin: 0 0 16px 0;
+        }
+
+        .markdown-cell table th,
+        .markdown-cell table td {
+            border: 1px solid #dfe2e5;
+            padding: 6px 13px;
+        }
+
+        .markdown-cell table th {
+            font-weight: 600;
+            background-color: #f6f8fa;
+        }
+
+        .markdown-cell table tr:nth-child(2n) {
+            background-color: #f6f8fa;
+        }
+
+        /* Raw cell styling */
+        .raw-cell {
+            background-color: var(--jp-layout-color1);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 2px;
+            padding: 8px 12px;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            white-space: pre-wrap;
+        }
+
+        /* Empty prompt placeholder */
+        .prompt-empty {
+            color: transparent;
+        }
+
+        .export-footer {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid var(--jp-border-color1);
+            color: #555;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .export-footer a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .export-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="notebook-container">
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h1>ISE 291 Final Project Report: Telco Customer Churn Prediction</h1><br><br><h2>Group Members and Contributions</h2><br><br>| Name | ID | Contribution |<br>|---|---|---|<br>| Majed AlOwayyeidh | 202467820 | Integrated all milestones (M1–M3), organized the final report, and coordinated the modeling workflow |<br>| Talal AlDakheel | 202467400 | Supported model evaluation and ensured consistency between business objectives and final analysis results |<br>| Ahmed AlSaad | 202432980 | Implemented preprocessing pipeline and contributed to model building (Logistic Regression, Decision Tree, Random Forest) |<br>| Abdullah Alluqmani | 202257720 | Interpreted model results in relation to EDA findings and contributed to feature-level analysis |<br>| Rakan AlShalan | 202351430 | Reviewed final report structure, ensured compliance with rubric requirements, and prepared the notebook for submission/export |<br><br><h2>Project Objective</h2><br>The objective of this project is to analyze customer churn behavior in a telecom company and build classification models that can predict whether a customer is likely to churn.</div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">1. Introduction<br>2. Dataset Description<br>3. Data Preparation<br>4. Model Building<br>5. Model Comparison<br>6. Final Model Selection<br>7. Conclusion<br></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##1. Introduction<br>###Import libraries</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [1]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>import pandas as pd
+import numpy as np
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
+from sklearn.preprocessing import StandardScaler
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, classification_report
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+
+import warnings
+warnings.filterwarnings("ignore")</pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Upload dataset</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [2]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>from google.colab import files
+uploaded = files.upload()</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-html">
+     <input type="file" id="files-c67b4d37-73f6-477d-bdea-648f51973de3" name="files[]" multiple disabled
+        style="border:none" />
+     <output id="result-c67b4d37-73f6-477d-bdea-648f51973de3">
+      Upload widget is only available when the cell has been executed in the
+      current browser session. Please rerun this cell to enable.
+      </output>
+      <script>// Copyright 2017 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+/**
+ * @fileoverview Helpers for google.colab Python module.
+ */
+(function(scope) {
+function span(text, styleAttributes = {}) {
+  const element = document.createElement('span');
+  element.textContent = text;
+  for (const key of Object.keys(styleAttributes)) {
+    element.style[key] = styleAttributes[key];
+  }
+  return element;
+}
+
+// Max number of bytes which will be uploaded at a time.
+const MAX_PAYLOAD_SIZE = 100 * 1024;
+
+function _uploadFiles(inputId, outputId) {
+  const steps = uploadFilesStep(inputId, outputId);
+  const outputElement = document.getElementById(outputId);
+  // Cache steps on the outputElement to make it available for the next call
+  // to uploadFilesContinue from Python.
+  outputElement.steps = steps;
+
+  return _uploadFilesContinue(outputId);
+}
+
+// This is roughly an async generator (not supported in the browser yet),
+// where there are multiple asynchronous steps and the Python side is going
+// to poll for completion of each step.
+// This uses a Promise to block the python side on completion of each step,
+// then passes the result of the previous step as the input to the next step.
+function _uploadFilesContinue(outputId) {
+  const outputElement = document.getElementById(outputId);
+  const steps = outputElement.steps;
+
+  const next = steps.next(outputElement.lastPromiseValue);
+  return Promise.resolve(next.value.promise).then((value) => {
+    // Cache the last promise value to make it available to the next
+    // step of the generator.
+    outputElement.lastPromiseValue = value;
+    return next.value.response;
+  });
+}
+
+/**
+ * Generator function which is called between each async step of the upload
+ * process.
+ * @param {string} inputId Element ID of the input file picker element.
+ * @param {string} outputId Element ID of the output display.
+ * @return {!Iterable<!Object>} Iterable of next steps.
+ */
+function* uploadFilesStep(inputId, outputId) {
+  const inputElement = document.getElementById(inputId);
+  inputElement.disabled = false;
+
+  const outputElement = document.getElementById(outputId);
+  outputElement.innerHTML = '';
+
+  const pickedPromise = new Promise((resolve) => {
+    inputElement.addEventListener('change', (e) => {
+      resolve(e.target.files);
+    });
+  });
+
+  const cancel = document.createElement('button');
+  inputElement.parentElement.appendChild(cancel);
+  cancel.textContent = 'Cancel upload';
+  const cancelPromise = new Promise((resolve) => {
+    cancel.onclick = () => {
+      resolve(null);
+    };
+  });
+
+  // Wait for the user to pick the files.
+  const files = yield {
+    promise: Promise.race([pickedPromise, cancelPromise]),
+    response: {
+      action: 'starting',
+    }
+  };
+
+  cancel.remove();
+
+  // Disable the input element since further picks are not allowed.
+  inputElement.disabled = true;
+
+  if (!files) {
+    return {
+      response: {
+        action: 'complete',
+      }
+    };
+  }
+
+  for (const file of files) {
+    const li = document.createElement('li');
+    li.append(span(file.name, {fontWeight: 'bold'}));
+    li.append(span(
+        `(${file.type || 'n/a'}) - ${file.size} bytes, ` +
+        `last modified: ${
+            file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() :
+                                    'n/a'} - `));
+    const percent = span('0% done');
+    li.appendChild(percent);
+
+    outputElement.appendChild(li);
+
+    const fileDataPromise = new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        resolve(e.target.result);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+    // Wait for the data to be ready.
+    let fileData = yield {
+      promise: fileDataPromise,
+      response: {
+        action: 'continue',
+      }
+    };
+
+    // Use a chunked sending to avoid message size limits. See b/62115660.
+    let position = 0;
+    do {
+      const length = Math.min(fileData.byteLength - position, MAX_PAYLOAD_SIZE);
+      const chunk = new Uint8Array(fileData, position, length);
+      position += length;
+
+      const base64 = btoa(String.fromCharCode.apply(null, chunk));
+      yield {
+        response: {
+          action: 'append',
+          file: file.name,
+          data: base64,
+        },
+      };
+
+      let percentDone = fileData.byteLength === 0 ?
+          100 :
+          Math.round((position / fileData.byteLength) * 100);
+      percent.textContent = `${percentDone}% done`;
+
+    } while (position < fileData.byteLength);
+  }
+
+  // All done.
+  yield {
+    response: {
+      action: 'complete',
+    }
+  };
+}
+
+scope.google = scope.google || {};
+scope.google.colab = scope.google.colab || {};
+scope.google.colab._files = {
+  _uploadFiles,
+  _uploadFilesContinue,
+};
+})(self);
+</script> </div>
+                        </div>
+                    </div>
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">Saving telco_churn_cleaned.xlsx to telco_churn_cleaned.xlsx
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Read dataset</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [3]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>df = pd.read_excel("telco_churn_cleaned.xlsx")
+
+df.head()</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[3]:</div>
+                        <div class="output-content">
+                            <div class="output-html">
+  <div id="df-112dfe3f-ccbc-4763-8f9d-6c4c2d24c61a" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>customerID</th>
+      <th>gender</th>
+      <th>SeniorCitizen</th>
+      <th>Partner</th>
+      <th>Dependents</th>
+      <th>tenure</th>
+      <th>PhoneService</th>
+      <th>MultipleLines</th>
+      <th>InternetService</th>
+      <th>OnlineSecurity</th>
+      <th>...</th>
+      <th>DeviceProtection</th>
+      <th>TechSupport</th>
+      <th>StreamingTV</th>
+      <th>StreamingMovies</th>
+      <th>Contract</th>
+      <th>PaperlessBilling</th>
+      <th>PaymentMethod</th>
+      <th>MonthlyCharges</th>
+      <th>TotalCharges</th>
+      <th>Churn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7590-VHVEG</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>1</td>
+      <td>No</td>
+      <td>No phone service</td>
+      <td>DSL</td>
+      <td>No</td>
+      <td>...</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Month-to-month</td>
+      <td>Yes</td>
+      <td>Electronic check</td>
+      <td>29.85</td>
+      <td>29.85</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5575-GNVDE</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>No</td>
+      <td>No</td>
+      <td>34</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>DSL</td>
+      <td>Yes</td>
+      <td>...</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>One year</td>
+      <td>No</td>
+      <td>Mailed check</td>
+      <td>56.95</td>
+      <td>1889.50</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3668-QPYBK</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>No</td>
+      <td>No</td>
+      <td>2</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>DSL</td>
+      <td>Yes</td>
+      <td>...</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Month-to-month</td>
+      <td>Yes</td>
+      <td>Mailed check</td>
+      <td>53.85</td>
+      <td>108.15</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7795-CFOCW</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>No</td>
+      <td>No</td>
+      <td>45</td>
+      <td>No</td>
+      <td>No phone service</td>
+      <td>DSL</td>
+      <td>Yes</td>
+      <td>...</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>One year</td>
+      <td>No</td>
+      <td>Bank transfer (automatic)</td>
+      <td>42.30</td>
+      <td>1840.75</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>9237-HQITU</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>No</td>
+      <td>No</td>
+      <td>2</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Fiber optic</td>
+      <td>No</td>
+      <td>...</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Month-to-month</td>
+      <td>Yes</td>
+      <td>Electronic check</td>
+      <td>70.70</td>
+      <td>151.65</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-112dfe3f-ccbc-4763-8f9d-6c4c2d24c61a')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-112dfe3f-ccbc-4763-8f9d-6c4c2d24c61a button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-112dfe3f-ccbc-4763-8f9d-6c4c2d24c61a');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    </div>
+  </div>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Basic dataset info</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [4]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>print("Shape:", df.shape)
+display(df.info())
+display(df.describe(include="all").T)</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">Shape: (7043, 21)
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 7043 entries, 0 to 7042
+Data columns (total 21 columns):
+ #   Column            Non-Null Count  Dtype  
+---  ------            --------------  -----  
+ 0   customerID        7043 non-null   object 
+ 1   gender            7043 non-null   object 
+ 2   SeniorCitizen     7043 non-null   int64  
+ 3   Partner           7043 non-null   object 
+ 4   Dependents        7043 non-null   object 
+ 5   tenure            7043 non-null   int64  
+ 6   PhoneService      7043 non-null   object 
+ 7   MultipleLines     7043 non-null   object 
+ 8   InternetService   7043 non-null   object 
+ 9   OnlineSecurity    7043 non-null   object 
+ 10  OnlineBackup      7043 non-null   object 
+ 11  DeviceProtection  7043 non-null   object 
+ 12  TechSupport       7043 non-null   object 
+ 13  StreamingTV       7043 non-null   object 
+ 14  StreamingMovies   7043 non-null   object 
+ 15  Contract          7043 non-null   object 
+ 16  PaperlessBilling  7043 non-null   object 
+ 17  PaymentMethod     7043 non-null   object 
+ 18  MonthlyCharges    7043 non-null   float64
+ 19  TotalCharges      7043 non-null   float64
+ 20  Churn             7043 non-null   object 
+dtypes: float64(2), int64(2), object(17)
+memory usage: 1.1+ MB
+</div>
+                        </div>
+                    </div>
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-result"><pre>None</pre></div>
+                        </div>
+                    </div>
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-html">
+  <div id="df-9713162b-fd6d-4f52-b8ae-89ff5778defb" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>customerID</th>
+      <td>7043</td>
+      <td>7043</td>
+      <td>3186-AJIEK</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>gender</th>
+      <td>7043</td>
+      <td>2</td>
+      <td>Male</td>
+      <td>3555</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>SeniorCitizen</th>
+      <td>7043.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.162147</td>
+      <td>0.368612</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Partner</th>
+      <td>7043</td>
+      <td>2</td>
+      <td>No</td>
+      <td>3641</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Dependents</th>
+      <td>7043</td>
+      <td>2</td>
+      <td>No</td>
+      <td>4933</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>tenure</th>
+      <td>7043.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>32.371149</td>
+      <td>24.559481</td>
+      <td>0.0</td>
+      <td>9.0</td>
+      <td>29.0</td>
+      <td>55.0</td>
+      <td>72.0</td>
+    </tr>
+    <tr>
+      <th>PhoneService</th>
+      <td>7043</td>
+      <td>2</td>
+      <td>Yes</td>
+      <td>6361</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MultipleLines</th>
+      <td>7043</td>
+      <td>3</td>
+      <td>No</td>
+      <td>3390</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>InternetService</th>
+      <td>7043</td>
+      <td>3</td>
+      <td>Fiber optic</td>
+      <td>3096</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>OnlineSecurity</th>
+      <td>7043</td>
+      <td>3</td>
+      <td>No</td>
+      <td>3498</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>OnlineBackup</th>
+      <td>7043</td>
+      <td>3</td>
+      <td>No</td>
+      <td>3088</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>DeviceProtection</th>
+      <td>7043</td>
+      <td>3</td>
+      <td>No</td>
+      <td>3095</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>TechSupport</th>
+      <td>7043</td>
+      <td>3</td>
+      <td>No</td>
+      <td>3473</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>StreamingTV</th>
+      <td>7043</td>
+      <td>3</td>
+      <td>No</td>
+      <td>2810</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>StreamingMovies</th>
+      <td>7043</td>
+      <td>3</td>
+      <td>No</td>
+      <td>2785</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Contract</th>
+      <td>7043</td>
+      <td>3</td>
+      <td>Month-to-month</td>
+      <td>3875</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>PaperlessBilling</th>
+      <td>7043</td>
+      <td>2</td>
+      <td>Yes</td>
+      <td>4171</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>PaymentMethod</th>
+      <td>7043</td>
+      <td>4</td>
+      <td>Electronic check</td>
+      <td>2365</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MonthlyCharges</th>
+      <td>7043.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>64.761692</td>
+      <td>30.090047</td>
+      <td>18.25</td>
+      <td>35.5</td>
+      <td>70.35</td>
+      <td>89.85</td>
+      <td>118.75</td>
+    </tr>
+    <tr>
+      <th>TotalCharges</th>
+      <td>7043.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2279.734304</td>
+      <td>2266.79447</td>
+      <td>0.0</td>
+      <td>398.55</td>
+      <td>1394.55</td>
+      <td>3786.6</td>
+      <td>8684.8</td>
+    </tr>
+    <tr>
+      <th>Churn</th>
+      <td>7043</td>
+      <td>2</td>
+      <td>No</td>
+      <td>5174</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-9713162b-fd6d-4f52-b8ae-89ff5778defb')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-9713162b-fd6d-4f52-b8ae-89ff5778defb button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-9713162b-fd6d-4f52-b8ae-89ff5778defb');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    </div>
+  </div>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>2. Dataset Description</h2><br><br>The dataset contains customer-level telecom information. Each row represents one customer, and the target variable is customer churn. The dataset includes both numerical and categorical variables, which makes it suitable for classification analysis.</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [5]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>df.columns</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[5]:</div>
+                        <div class="output-content">
+                            <div class="output-result"><pre>Index(['customerID', 'gender', 'SeniorCitizen', 'Partner', 'Dependents',
+       'tenure', 'PhoneService', 'MultipleLines', 'InternetService',
+       'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport',
+       'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling',
+       'PaymentMethod', 'MonthlyCharges', 'TotalCharges', 'Churn'],
+      dtype='object')</pre></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Target Variable</h2><br><br>The target variable is <code>Churn</code>, which indicates whether a customer left the company or not. Since the target has two possible outcomes, this is a binary classification problem.</div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Check missing values</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [6]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>df.isnull().sum()</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[6]:</div>
+                        <div class="output-content">
+                            <div class="output-html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>customerID</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>gender</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>SeniorCitizen</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Partner</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Dependents</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>tenure</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>PhoneService</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>MultipleLines</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>InternetService</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>OnlineSecurity</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>OnlineBackup</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>DeviceProtection</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>TechSupport</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>StreamingTV</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>StreamingMovies</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contract</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>PaperlessBilling</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>PaymentMethod</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>MonthlyCharges</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>TotalCharges</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Churn</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div><br><label><b>dtype:</b> int64</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Check churn distribution</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [7]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>df["Churn"].value_counts()</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[7]:</div>
+                        <div class="output-content">
+                            <div class="output-html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>Churn</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>No</th>
+      <td>5174</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>1869</td>
+    </tr>
+  </tbody>
+</table>
+</div><br><label><b>dtype:</b> int64</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Plot churn distribution</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [8]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>plt.figure(figsize=(6,4))
+sns.countplot(data=df, x="Churn")
+plt.title("Distribution of Customer Churn")
+plt.xlabel("Churn")
+plt.ylabel("Number of Customers")
+plt.show()</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <img class="output-image" src="data:image/png;base64,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Ksl5LiwsVIcOHTR69Ogr9q1bt67dekm/Jx09r0WuV3NJz/+lrlazmb4P4RrMlMAtvP3225KkqKioa/bz8PBQ+/btNX36dP3www968cUXtWHDBm3cuFHS1f+DLa0DBw7YrRuGoYMHD9o9fbVy5crKyckp9trL//p2pLbQ0FAdOXKk2F/F+/bts213htDQUB04cKDYbMOf2U+nTp3k6empd955p0T9S3r+pNJ//YuOY//+/cW27d+/32nnU5LuuOMOnTp1SpGRkVdcrjSbUBKOnteSKpo5ufxrUJpZMtz8CCW46W3YsEEvvPCCwsLCFBMTc9V+x48fL9ZW9Bfj+fPnJcn2vIQr/ZIrjbfeessuGCxbtkxHjx5Vp06dbG133HGHvvzyS+Xn59vaVq1apcOHD9uN5UhtnTt3VkFBgebOnWvXPmPGDFksFrv9/xmdO3dWZmamPvzwQ1vbxYsXNWfOHFWsWFH33Xefw2PWqFFDgwYN0tq1azVnzpxi2wsLCzVt2jT9+uuvkv44f7m5udq1a5etz9GjR/XRRx/Zve7PfP1btmypwMBALViwwNZX+uOOlr179yo6Otrh47yaHj16KDU1VSkpKcW25eTk6OLFi6Ua19HzWlL+/v665ZZbil3rMn/+/FLViZsbb9/gprJmzRrt27dPFy9eVFZWljZs2KB169YpNDRUn3zyid1FiJebOHGitmzZoujoaIWGhio7O1vz589X9erVde+990r64xdcQECAFixYoEqVKsnPz0933313id+3v1yVKlV07733qn///srKytLMmTNVu3Ztu9uWBw4cqGXLlunBBx9Ujx49dOjQIb3zzjt2F546WttDDz2kdu3a6dlnn9XPP/+sO++8U2vXrtXHH3+sESNGFBu7tAYPHqzXXntN/fr1086dO1WrVi0tW7ZMW7du1cyZM0t9seq0adN06NAhDRs2TCtWrFCXLl1UuXJlZWRkaOnSpdq3b5969uwpSerZs6fGjBmjRx99VMOGDdOZM2f06quvqm7duvrmm29sY/7Zr/9LL72k/v3767777lOvXr1stwTXqlVL8fHxf/5k/n+jRo3SJ598oi5duthuhz19+rR2796tZcuW6eeff9Ytt9xSqrEdOa+OGDhwoKZMmaKBAweqZcuW2rJli3788cdS1YibXFne+gM4S9EtwUWLt7e3ERwcbHTo0MGYNWuW3a2nRS6/JXT9+vXGww8/bISEhBje3t5GSEiI0atXr2K3Xn788cdGeHi4Ua5cuSs+PO1KrnZL8Pvvv28kJiYagYGBhq+vrxEdHW388ssvxV4/bdo047bbbjN8fHyM1q1bGzt27Cg25rVqu9JtsSdPnjTi4+ONkJAQw8vLy6hTp841H552uavdqny5rKwso3///sYtt9xieHt7G40bN77i7aElvSW4yMWLF42FCxcabdq0MaxWq+Hl5WWEhoYa/fv3L3Zb69q1a41GjRoZ3t7eRr169Yx33nnH6V9/wzCMDz/80GjWrJnh4+NjVKlS5ZoPT7vc1b5/rnReTp48aSQmJhq1a9c2vL29jVtuucW45557jFdeecXIz883DMP+4WmOKOl5LTp/l99CXfSzeOnD786cOWPExsYaVqvVqFSpktGjRw8jOzv7qrcEX+m27Kt9f1zp5wB/XRbD4AohAABQ9rimBAAAmAKhBAAAmAKhBAAAmAKhBAAAmAKhBAAAmAKhBAAAmAIPTyuBwsJCHTlyRJUqVXL6Y8YBALiZGYahkydPKiQkpNiHc16OUFICR44cUY0aNcq6DAAA/rIOHz6s6tWrX7MPoaQEih6FffjwYdvHewMAgOvLy8tTjRo1SvSxEoSSEih6y8bf359QAgBAKZTk8gcudAUAAKZAKAEAAKZAKAEAAKZAKAEAAKZAKAEAAKZAKAEAAKZAKAEAAKZAKAEAAKZAKAEAAKZAKAEAAKZAKAEAAKbAZ9+YRItRb5V1CYDL7Xy5T1mXAMDEmCkBAACmQCgBAACmQCgBAACmQCgBAACmQCgBAACmUKahZMKECbJYLHZL/fr1bdvPnTunuLg4Va1aVRUrVlS3bt2UlZVlN0ZGRoaio6NVoUIFBQYGatSoUbp48aJdn02bNql58+by8fFR7dq1lZSUdCMODwAAOKDMZ0oaNmyoo0eP2pYvvvjCti0+Pl6ffvqpli5dqs2bN+vIkSPq2rWrbXtBQYGio6OVn5+vbdu2afHixUpKStK4ceNsfdLT0xUdHa127dopLS1NI0aM0MCBA5WSknJDjxMAAFxbmT+npFy5cgoODi7WnpubqzfeeEPvvfeeHnjgAUnSokWL1KBBA3355Zdq1aqV1q5dqx9++EH/+9//FBQUpKZNm+qFF17QmDFjNGHCBHl7e2vBggUKCwvTtGnTJEkNGjTQF198oRkzZigqKuqGHisAALi6Mp8pOXDggEJCQnT77bcrJiZGGRkZkqSdO3fqwoULioyMtPWtX7++atasqdTUVElSamqqGjdurKCgIFufqKgo5eXlac+ePbY+l45R1KdojCs5f/688vLy7BYAAOBaZRpK7r77biUlJSk5OVmvvvqq0tPT1aZNG508eVKZmZny9vZWQECA3WuCgoKUmZkpScrMzLQLJEXbi7Zdq09eXp7Onj17xbomT54sq9VqW2rUqOGMwwUAANdQpm/fdOrUyfbvJk2a6O6771ZoaKiWLFkiX1/fMqsrMTFRCQkJtvW8vDyCCQAALlbmb99cKiAgQHXr1tXBgwcVHBys/Px85eTk2PXJysqyXYMSHBxc7G6covXr9fH3979q8PHx8ZG/v7/dAgAAXMtUoeTUqVM6dOiQbr31VrVo0UJeXl5av369bfv+/fuVkZGhiIgISVJERIR2796t7OxsW59169bJ399f4eHhtj6XjlHUp2gMAABgDmUaSv71r39p8+bN+vnnn7Vt2zY9+uij8vT0VK9evWS1WhUbG6uEhARt3LhRO3fuVP/+/RUREaFWrVpJkjp27Kjw8HD17t1b3333nVJSUjR27FjFxcXJx8dHkjRkyBD99NNPGj16tPbt26f58+dryZIlio+PL8tDBwAAlynTa0p+/fVX9erVS7///ruqVaume++9V19++aWqVasmSZoxY4Y8PDzUrVs3nT9/XlFRUZo/f77t9Z6enlq1apWefPJJRUREyM/PT3379tXEiRNtfcLCwrR69WrFx8dr1qxZql69uhYuXMjtwAAAmIzFMAyjrIswu7y8PFmtVuXm5rrs+pIWo95yybiAmex8uU9ZlwDgBnPkd6iprikBAADui1ACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABMgVACAABM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
+" alt="Output" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Churn Distribution</h2><br><br>The churn distribution shows how many customers stayed and how many customers left. This is important because classification models can be affected if one class is much larger than the other.</div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##3. Prepare data for modeling</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [9]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Drop customerID because it is only an identifier and does not help prediction
+df_model = df.drop(columns=["customerID"])
+
+# Separate features and target
+X = df_model.drop(columns=["Churn"])
+y = df_model["Churn"]
+
+# Convert target to binary values
+y = y.map({"No": 0, "Yes": 1})
+
+# Identify categorical and numerical columns
+categorical_cols = X.select_dtypes(include=["object"]).columns
+numerical_cols = X.select_dtypes(include=["int64", "float64"]).columns
+
+print("Categorical columns:", list(categorical_cols))
+print("Numerical columns:", list(numerical_cols))</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">Categorical columns: ['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod']
+Numerical columns: ['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges']
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Train-test split</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [10]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+print("Train shape:", X_train.shape)
+print("Test shape:", X_test.shape)</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">Train shape: (5634, 19)
+Test shape: (1409, 19)
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Preprocessing pipeline</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [12]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>from sklearn.preprocessing import OneHotEncoder
+
+preprocessor = ColumnTransformer(
+    transformers=[
+        ("num", StandardScaler(), numerical_cols),
+        ("cat", OneHotEncoder(handle_unknown="ignore"), categorical_cols)
+    ]
+)</pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>4. Model Building</h2><br><br>In this section, multiple classification models are trained and evaluated. The goal is to compare their performance and select the best model for predicting customer churn.</div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##First Model: Logistic Regression</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [13]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>log_model = Pipeline(steps=[
+    ("preprocessor", preprocessor),
+    ("classifier", LogisticRegression(max_iter=1000))
+])
+
+log_model.fit(X_train, y_train)</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[13]:</div>
+                        <div class="output-content">
+                            <div class="output-html"><style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-1 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 0.5em;
+  text-align: center;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;preprocessor&#x27;,
+                 ColumnTransformer(transformers=[(&#x27;num&#x27;, StandardScaler(),
+                                                  Index([&#x27;SeniorCitizen&#x27;, &#x27;tenure&#x27;, &#x27;MonthlyCharges&#x27;, &#x27;TotalCharges&#x27;], dtype=&#x27;object&#x27;)),
+                                                 (&#x27;cat&#x27;,
+                                                  OneHotEncoder(handle_unknown=&#x27;ignore&#x27;),
+                                                  Index([&#x27;gender&#x27;, &#x27;Partner&#x27;, &#x27;Dependents&#x27;, &#x27;PhoneService&#x27;, &#x27;MultipleLines&#x27;,
+       &#x27;InternetService&#x27;, &#x27;OnlineSecurity&#x27;, &#x27;OnlineBackup&#x27;, &#x27;DeviceProtection&#x27;,
+       &#x27;TechSupport&#x27;, &#x27;StreamingTV&#x27;, &#x27;StreamingMovies&#x27;, &#x27;Contract&#x27;,
+       &#x27;PaperlessBilling&#x27;, &#x27;PaymentMethod&#x27;],
+      dtype=&#x27;object&#x27;))])),
+                (&#x27;classifier&#x27;, LogisticRegression(max_iter=1000))])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" ><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>Pipeline</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>Pipeline(steps=[(&#x27;preprocessor&#x27;,
+                 ColumnTransformer(transformers=[(&#x27;num&#x27;, StandardScaler(),
+                                                  Index([&#x27;SeniorCitizen&#x27;, &#x27;tenure&#x27;, &#x27;MonthlyCharges&#x27;, &#x27;TotalCharges&#x27;], dtype=&#x27;object&#x27;)),
+                                                 (&#x27;cat&#x27;,
+                                                  OneHotEncoder(handle_unknown=&#x27;ignore&#x27;),
+                                                  Index([&#x27;gender&#x27;, &#x27;Partner&#x27;, &#x27;Dependents&#x27;, &#x27;PhoneService&#x27;, &#x27;MultipleLines&#x27;,
+       &#x27;InternetService&#x27;, &#x27;OnlineSecurity&#x27;, &#x27;OnlineBackup&#x27;, &#x27;DeviceProtection&#x27;,
+       &#x27;TechSupport&#x27;, &#x27;StreamingTV&#x27;, &#x27;StreamingMovies&#x27;, &#x27;Contract&#x27;,
+       &#x27;PaperlessBilling&#x27;, &#x27;PaymentMethod&#x27;],
+      dtype=&#x27;object&#x27;))])),
+                (&#x27;classifier&#x27;, LogisticRegression(max_iter=1000))])</pre></div> </div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" ><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>preprocessor: ColumnTransformer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for preprocessor: ColumnTransformer</span></a></div></label><div class="sk-toggleable__content fitted"><pre>ColumnTransformer(transformers=[(&#x27;num&#x27;, StandardScaler(),
+                                 Index([&#x27;SeniorCitizen&#x27;, &#x27;tenure&#x27;, &#x27;MonthlyCharges&#x27;, &#x27;TotalCharges&#x27;], dtype=&#x27;object&#x27;)),
+                                (&#x27;cat&#x27;, OneHotEncoder(handle_unknown=&#x27;ignore&#x27;),
+                                 Index([&#x27;gender&#x27;, &#x27;Partner&#x27;, &#x27;Dependents&#x27;, &#x27;PhoneService&#x27;, &#x27;MultipleLines&#x27;,
+       &#x27;InternetService&#x27;, &#x27;OnlineSecurity&#x27;, &#x27;OnlineBackup&#x27;, &#x27;DeviceProtection&#x27;,
+       &#x27;TechSupport&#x27;, &#x27;StreamingTV&#x27;, &#x27;StreamingMovies&#x27;, &#x27;Contract&#x27;,
+       &#x27;PaperlessBilling&#x27;, &#x27;PaymentMethod&#x27;],
+      dtype=&#x27;object&#x27;))])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>num</div></div></label><div class="sk-toggleable__content fitted"><pre>Index([&#x27;SeniorCitizen&#x27;, &#x27;tenure&#x27;, &#x27;MonthlyCharges&#x27;, &#x27;TotalCharges&#x27;], dtype=&#x27;object&#x27;)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" ><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" ><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>cat</div></div></label><div class="sk-toggleable__content fitted"><pre>Index([&#x27;gender&#x27;, &#x27;Partner&#x27;, &#x27;Dependents&#x27;, &#x27;PhoneService&#x27;, &#x27;MultipleLines&#x27;,
+       &#x27;InternetService&#x27;, &#x27;OnlineSecurity&#x27;, &#x27;OnlineBackup&#x27;, &#x27;DeviceProtection&#x27;,
+       &#x27;TechSupport&#x27;, &#x27;StreamingTV&#x27;, &#x27;StreamingMovies&#x27;, &#x27;Contract&#x27;,
+       &#x27;PaperlessBilling&#x27;, &#x27;PaymentMethod&#x27;],
+      dtype=&#x27;object&#x27;)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" ><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>OneHotEncoder</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.OneHotEncoder.html">?<span>Documentation for OneHotEncoder</span></a></div></label><div class="sk-toggleable__content fitted"><pre>OneHotEncoder(handle_unknown=&#x27;ignore&#x27;)</pre></div> </div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" ><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a></div></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(max_iter=1000)</pre></div> </div></div></div></div></div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Predictions</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [14]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>y_pred_log = log_model.predict(X_test)</pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Evaluation</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [15]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>print("Logistic Regression Performance:")
+print("Accuracy:", accuracy_score(y_test, y_pred_log))
+print("Precision:", precision_score(y_test, y_pred_log))
+print("Recall:", recall_score(y_test, y_pred_log))
+print("F1 Score:", f1_score(y_test, y_pred_log))
+
+print("\nConfusion Matrix:")
+print(confusion_matrix(y_test, y_pred_log))</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">Logistic Regression Performance:
+Accuracy: 0.8055358410220014
+Precision: 0.6572327044025157
+Recall: 0.5588235294117647
+F1 Score: 0.6040462427745664
+
+Confusion Matrix:
+[[926 109]
+ [165 209]]
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h3>Logistic Regression Interpretation</h3><br><br>Logistic regression is used as a baseline model. It helps in understanding how different features contribute to customer churn and provides a simple but effective benchmark for comparison.</div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Decision Tree Model</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [16]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>tree_model = Pipeline(steps=[
+    ("preprocessor", preprocessor),
+    ("classifier", DecisionTreeClassifier(random_state=42))
+])
+
+tree_model.fit(X_train, y_train)</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[16]:</div>
+                        <div class="output-content">
+                            <div class="output-html"><style>#sk-container-id-2 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-2 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-2 pre {
+  padding: 0;
+}
+
+#sk-container-id-2 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-2 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-2 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-2 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-2 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-2 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-2 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-2 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-2 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-2 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-2 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-2 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-2 label.sk-toggleable__label {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-2 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
+}
+
+#sk-container-id-2 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-2 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-2 div.sk-label label.sk-toggleable__label,
+#sk-container-id-2 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-2 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-2 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-2 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-2 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-2 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 0.5em;
+  text-align: center;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-2 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-2 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-2 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-2 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;preprocessor&#x27;,
+                 ColumnTransformer(transformers=[(&#x27;num&#x27;, StandardScaler(),
+                                                  Index([&#x27;SeniorCitizen&#x27;, &#x27;tenure&#x27;, &#x27;MonthlyCharges&#x27;, &#x27;TotalCharges&#x27;], dtype=&#x27;object&#x27;)),
+                                                 (&#x27;cat&#x27;,
+                                                  OneHotEncoder(handle_unknown=&#x27;ignore&#x27;),
+                                                  Index([&#x27;gender&#x27;, &#x27;Partner&#x27;, &#x27;Dependents&#x27;, &#x27;PhoneService&#x27;, &#x27;MultipleLines&#x27;,
+       &#x27;InternetService&#x27;, &#x27;OnlineSecurity&#x27;, &#x27;OnlineBackup&#x27;, &#x27;DeviceProtection&#x27;,
+       &#x27;TechSupport&#x27;, &#x27;StreamingTV&#x27;, &#x27;StreamingMovies&#x27;, &#x27;Contract&#x27;,
+       &#x27;PaperlessBilling&#x27;, &#x27;PaymentMethod&#x27;],
+      dtype=&#x27;object&#x27;))])),
+                (&#x27;classifier&#x27;, DecisionTreeClassifier(random_state=42))])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox" ><label for="sk-estimator-id-8" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>Pipeline</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>Pipeline(steps=[(&#x27;preprocessor&#x27;,
+                 ColumnTransformer(transformers=[(&#x27;num&#x27;, StandardScaler(),
+                                                  Index([&#x27;SeniorCitizen&#x27;, &#x27;tenure&#x27;, &#x27;MonthlyCharges&#x27;, &#x27;TotalCharges&#x27;], dtype=&#x27;object&#x27;)),
+                                                 (&#x27;cat&#x27;,
+                                                  OneHotEncoder(handle_unknown=&#x27;ignore&#x27;),
+                                                  Index([&#x27;gender&#x27;, &#x27;Partner&#x27;, &#x27;Dependents&#x27;, &#x27;PhoneService&#x27;, &#x27;MultipleLines&#x27;,
+       &#x27;InternetService&#x27;, &#x27;OnlineSecurity&#x27;, &#x27;OnlineBackup&#x27;, &#x27;DeviceProtection&#x27;,
+       &#x27;TechSupport&#x27;, &#x27;StreamingTV&#x27;, &#x27;StreamingMovies&#x27;, &#x27;Contract&#x27;,
+       &#x27;PaperlessBilling&#x27;, &#x27;PaymentMethod&#x27;],
+      dtype=&#x27;object&#x27;))])),
+                (&#x27;classifier&#x27;, DecisionTreeClassifier(random_state=42))])</pre></div> </div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-9" type="checkbox" ><label for="sk-estimator-id-9" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>preprocessor: ColumnTransformer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for preprocessor: ColumnTransformer</span></a></div></label><div class="sk-toggleable__content fitted"><pre>ColumnTransformer(transformers=[(&#x27;num&#x27;, StandardScaler(),
+                                 Index([&#x27;SeniorCitizen&#x27;, &#x27;tenure&#x27;, &#x27;MonthlyCharges&#x27;, &#x27;TotalCharges&#x27;], dtype=&#x27;object&#x27;)),
+                                (&#x27;cat&#x27;, OneHotEncoder(handle_unknown=&#x27;ignore&#x27;),
+                                 Index([&#x27;gender&#x27;, &#x27;Partner&#x27;, &#x27;Dependents&#x27;, &#x27;PhoneService&#x27;, &#x27;MultipleLines&#x27;,
+       &#x27;InternetService&#x27;, &#x27;OnlineSecurity&#x27;, &#x27;OnlineBackup&#x27;, &#x27;DeviceProtection&#x27;,
+       &#x27;TechSupport&#x27;, &#x27;StreamingTV&#x27;, &#x27;StreamingMovies&#x27;, &#x27;Contract&#x27;,
+       &#x27;PaperlessBilling&#x27;, &#x27;PaymentMethod&#x27;],
+      dtype=&#x27;object&#x27;))])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-10" type="checkbox" ><label for="sk-estimator-id-10" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>num</div></div></label><div class="sk-toggleable__content fitted"><pre>Index([&#x27;SeniorCitizen&#x27;, &#x27;tenure&#x27;, &#x27;MonthlyCharges&#x27;, &#x27;TotalCharges&#x27;], dtype=&#x27;object&#x27;)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-11" type="checkbox" ><label for="sk-estimator-id-11" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-12" type="checkbox" ><label for="sk-estimator-id-12" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>cat</div></div></label><div class="sk-toggleable__content fitted"><pre>Index([&#x27;gender&#x27;, &#x27;Partner&#x27;, &#x27;Dependents&#x27;, &#x27;PhoneService&#x27;, &#x27;MultipleLines&#x27;,
+       &#x27;InternetService&#x27;, &#x27;OnlineSecurity&#x27;, &#x27;OnlineBackup&#x27;, &#x27;DeviceProtection&#x27;,
+       &#x27;TechSupport&#x27;, &#x27;StreamingTV&#x27;, &#x27;StreamingMovies&#x27;, &#x27;Contract&#x27;,
+       &#x27;PaperlessBilling&#x27;, &#x27;PaymentMethod&#x27;],
+      dtype=&#x27;object&#x27;)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-13" type="checkbox" ><label for="sk-estimator-id-13" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>OneHotEncoder</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.OneHotEncoder.html">?<span>Documentation for OneHotEncoder</span></a></div></label><div class="sk-toggleable__content fitted"><pre>OneHotEncoder(handle_unknown=&#x27;ignore&#x27;)</pre></div> </div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-14" type="checkbox" ><label for="sk-estimator-id-14" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DecisionTreeClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a></div></label><div class="sk-toggleable__content fitted"><pre>DecisionTreeClassifier(random_state=42)</pre></div> </div></div></div></div></div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Predictions</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [17]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>y_pred_tree = tree_model.predict(X_test)</pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Evaluation</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [18]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>print("Decision Tree Performance:")
+print("Accuracy:", accuracy_score(y_test, y_pred_tree))
+print("Precision:", precision_score(y_test, y_pred_tree))
+print("Recall:", recall_score(y_test, y_pred_tree))
+print("F1 Score:", f1_score(y_test, y_pred_tree))
+
+print("\nConfusion Matrix:")
+print(confusion_matrix(y_test, y_pred_tree))</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">Decision Tree Performance:
+Accuracy: 0.7210787792760823
+Precision: 0.4754521963824289
+Recall: 0.4919786096256685
+F1 Score: 0.4835742444152431
+
+Confusion Matrix:
+[[832 203]
+ [190 184]]
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h3>Decision Tree Interpretation</h3><br><br>The decision tree model captures non-linear relationships between features and churn. However, it may overfit the training data, which can affect its performance on unseen data.</div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Random Forest Model</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [19]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>rf_model = Pipeline(steps=[
+    ("preprocessor", preprocessor),
+    ("classifier", RandomForestClassifier(n_estimators=100, random_state=42))
+])
+
+rf_model.fit(X_train, y_train)</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[19]:</div>
+                        <div class="output-content">
+                            <div class="output-html"><style>#sk-container-id-3 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-3 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-3 pre {
+  padding: 0;
+}
+
+#sk-container-id-3 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-3 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-3 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-3 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-3 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-3 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-3 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-3 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-3 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-3 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-3 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-3 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-3 label.sk-toggleable__label {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-3 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
+}
+
+#sk-container-id-3 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-3 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-3 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-3 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-3 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-3 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-3 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-3 div.sk-label label.sk-toggleable__label,
+#sk-container-id-3 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-3 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-3 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-3 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-3 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-3 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-3 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-3 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 0.5em;
+  text-align: center;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-3 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-3 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-3 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-3 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;preprocessor&#x27;,
+                 ColumnTransformer(transformers=[(&#x27;num&#x27;, StandardScaler(),
+                                                  Index([&#x27;SeniorCitizen&#x27;, &#x27;tenure&#x27;, &#x27;MonthlyCharges&#x27;, &#x27;TotalCharges&#x27;], dtype=&#x27;object&#x27;)),
+                                                 (&#x27;cat&#x27;,
+                                                  OneHotEncoder(handle_unknown=&#x27;ignore&#x27;),
+                                                  Index([&#x27;gender&#x27;, &#x27;Partner&#x27;, &#x27;Dependents&#x27;, &#x27;PhoneService&#x27;, &#x27;MultipleLines&#x27;,
+       &#x27;InternetService&#x27;, &#x27;OnlineSecurity&#x27;, &#x27;OnlineBackup&#x27;, &#x27;DeviceProtection&#x27;,
+       &#x27;TechSupport&#x27;, &#x27;StreamingTV&#x27;, &#x27;StreamingMovies&#x27;, &#x27;Contract&#x27;,
+       &#x27;PaperlessBilling&#x27;, &#x27;PaymentMethod&#x27;],
+      dtype=&#x27;object&#x27;))])),
+                (&#x27;classifier&#x27;, RandomForestClassifier(random_state=42))])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-15" type="checkbox" ><label for="sk-estimator-id-15" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>Pipeline</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>Pipeline(steps=[(&#x27;preprocessor&#x27;,
+                 ColumnTransformer(transformers=[(&#x27;num&#x27;, StandardScaler(),
+                                                  Index([&#x27;SeniorCitizen&#x27;, &#x27;tenure&#x27;, &#x27;MonthlyCharges&#x27;, &#x27;TotalCharges&#x27;], dtype=&#x27;object&#x27;)),
+                                                 (&#x27;cat&#x27;,
+                                                  OneHotEncoder(handle_unknown=&#x27;ignore&#x27;),
+                                                  Index([&#x27;gender&#x27;, &#x27;Partner&#x27;, &#x27;Dependents&#x27;, &#x27;PhoneService&#x27;, &#x27;MultipleLines&#x27;,
+       &#x27;InternetService&#x27;, &#x27;OnlineSecurity&#x27;, &#x27;OnlineBackup&#x27;, &#x27;DeviceProtection&#x27;,
+       &#x27;TechSupport&#x27;, &#x27;StreamingTV&#x27;, &#x27;StreamingMovies&#x27;, &#x27;Contract&#x27;,
+       &#x27;PaperlessBilling&#x27;, &#x27;PaymentMethod&#x27;],
+      dtype=&#x27;object&#x27;))])),
+                (&#x27;classifier&#x27;, RandomForestClassifier(random_state=42))])</pre></div> </div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox" ><label for="sk-estimator-id-16" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>preprocessor: ColumnTransformer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for preprocessor: ColumnTransformer</span></a></div></label><div class="sk-toggleable__content fitted"><pre>ColumnTransformer(transformers=[(&#x27;num&#x27;, StandardScaler(),
+                                 Index([&#x27;SeniorCitizen&#x27;, &#x27;tenure&#x27;, &#x27;MonthlyCharges&#x27;, &#x27;TotalCharges&#x27;], dtype=&#x27;object&#x27;)),
+                                (&#x27;cat&#x27;, OneHotEncoder(handle_unknown=&#x27;ignore&#x27;),
+                                 Index([&#x27;gender&#x27;, &#x27;Partner&#x27;, &#x27;Dependents&#x27;, &#x27;PhoneService&#x27;, &#x27;MultipleLines&#x27;,
+       &#x27;InternetService&#x27;, &#x27;OnlineSecurity&#x27;, &#x27;OnlineBackup&#x27;, &#x27;DeviceProtection&#x27;,
+       &#x27;TechSupport&#x27;, &#x27;StreamingTV&#x27;, &#x27;StreamingMovies&#x27;, &#x27;Contract&#x27;,
+       &#x27;PaperlessBilling&#x27;, &#x27;PaymentMethod&#x27;],
+      dtype=&#x27;object&#x27;))])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-17" type="checkbox" ><label for="sk-estimator-id-17" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>num</div></div></label><div class="sk-toggleable__content fitted"><pre>Index([&#x27;SeniorCitizen&#x27;, &#x27;tenure&#x27;, &#x27;MonthlyCharges&#x27;, &#x27;TotalCharges&#x27;], dtype=&#x27;object&#x27;)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-18" type="checkbox" ><label for="sk-estimator-id-18" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-19" type="checkbox" ><label for="sk-estimator-id-19" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>cat</div></div></label><div class="sk-toggleable__content fitted"><pre>Index([&#x27;gender&#x27;, &#x27;Partner&#x27;, &#x27;Dependents&#x27;, &#x27;PhoneService&#x27;, &#x27;MultipleLines&#x27;,
+       &#x27;InternetService&#x27;, &#x27;OnlineSecurity&#x27;, &#x27;OnlineBackup&#x27;, &#x27;DeviceProtection&#x27;,
+       &#x27;TechSupport&#x27;, &#x27;StreamingTV&#x27;, &#x27;StreamingMovies&#x27;, &#x27;Contract&#x27;,
+       &#x27;PaperlessBilling&#x27;, &#x27;PaymentMethod&#x27;],
+      dtype=&#x27;object&#x27;)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-20" type="checkbox" ><label for="sk-estimator-id-20" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>OneHotEncoder</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.OneHotEncoder.html">?<span>Documentation for OneHotEncoder</span></a></div></label><div class="sk-toggleable__content fitted"><pre>OneHotEncoder(handle_unknown=&#x27;ignore&#x27;)</pre></div> </div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-21" type="checkbox" ><label for="sk-estimator-id-21" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>RandomForestClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.ensemble.RandomForestClassifier.html">?<span>Documentation for RandomForestClassifier</span></a></div></label><div class="sk-toggleable__content fitted"><pre>RandomForestClassifier(random_state=42)</pre></div> </div></div></div></div></div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Predictions</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [20]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>y_pred_rf = rf_model.predict(X_test)</pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Evaluation</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [21]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>print("Random Forest Performance:")
+print("Accuracy:", accuracy_score(y_test, y_pred_rf))
+print("Precision:", precision_score(y_test, y_pred_rf))
+print("Recall:", recall_score(y_test, y_pred_rf))
+print("F1 Score:", f1_score(y_test, y_pred_rf))
+
+print("\nConfusion Matrix:")
+print(confusion_matrix(y_test, y_pred_rf))</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt"></div>
+                        <div class="output-content">
+                            <div class="output-stream">Random Forest Performance:
+Accuracy: 0.7863733144073811
+Precision: 0.6254295532646048
+Recall: 0.48663101604278075
+F1 Score: 0.5473684210526316
+
+Confusion Matrix:
+[[926 109]
+ [192 182]]
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h3>Random Forest Interpretation</h3><br><br>Random Forest improves performance by combining multiple decision trees. It reduces overfitting and usually provides better generalization compared to a single decision tree.</div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##5. Model Comparison Table</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [22]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre>results = pd.DataFrame({
+    "Model": ["Logistic Regression", "Decision Tree", "Random Forest"],
+    "Accuracy": [
+        accuracy_score(y_test, y_pred_log),
+        accuracy_score(y_test, y_pred_tree),
+        accuracy_score(y_test, y_pred_rf)
+    ],
+    "Precision": [
+        precision_score(y_test, y_pred_log),
+        precision_score(y_test, y_pred_tree),
+        precision_score(y_test, y_pred_rf)
+    ],
+    "Recall": [
+        recall_score(y_test, y_pred_log),
+        recall_score(y_test, y_pred_tree),
+        recall_score(y_test, y_pred_rf)
+    ],
+    "F1 Score": [
+        f1_score(y_test, y_pred_log),
+        f1_score(y_test, y_pred_tree),
+        f1_score(y_test, y_pred_rf)
+    ]
+})
+
+results</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[22]:</div>
+                        <div class="output-content">
+                            <div class="output-html">
+  <div id="df-5959c081-7368-4b03-a47f-b10daccf6270" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Model</th>
+      <th>Accuracy</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1 Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Logistic Regression</td>
+      <td>0.805536</td>
+      <td>0.657233</td>
+      <td>0.558824</td>
+      <td>0.604046</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Decision Tree</td>
+      <td>0.721079</td>
+      <td>0.475452</td>
+      <td>0.491979</td>
+      <td>0.483574</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Random Forest</td>
+      <td>0.786373</td>
+      <td>0.625430</td>
+      <td>0.486631</td>
+      <td>0.547368</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5959c081-7368-4b03-a47f-b10daccf6270')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-5959c081-7368-4b03-a47f-b10daccf6270 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-5959c081-7368-4b03-a47f-b10daccf6270');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+  <div id="id_44d5d6fd-e063-4a8d-9749-6675c41b1ce6">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('results')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_44d5d6fd-e063-4a8d-9749-6675c41b1ce6 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('results');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Model Comparison</h2><br><br>The performance of the three models is compared using accuracy, precision, recall, and F1-score.<br><br>- Logistic Regression achieved the highest accuracy and F1-score.<br>- Decision Tree performed the worst due to overfitting and instability.<br>- Random Forest improved over Decision Tree but did not outperform Logistic Regression.<br><br>Overall, Logistic Regression provides the best balance between precision and recall.</div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##6. Final Model Selection<br><br>Based on the evaluation metrics, Logistic Regression is selected as the final model.<br><br>Reasons:<br>- It achieved the highest accuracy (≈ 80.5%)<br>- It has the highest F1-score, indicating a good balance between precision and recall<br>- It generalizes better compared to Decision Tree and Random Forest<br><br>Although Random Forest performed well, its recall was lower than Logistic Regression, meaning it missed more churn cases.<br><br>Therefore, Logistic Regression is the most reliable model for predicting customer churn in this dataset.</div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##Feature Importance</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [23]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre># Get feature names after preprocessing
+ohe = log_model.named_steps["preprocessor"].named_transformers_["cat"]
+encoded_cat_features = ohe.get_feature_names_out(categorical_cols)
+
+all_features = list(numerical_cols) + list(encoded_cat_features)
+
+# Get coefficients
+coefficients = log_model.named_steps["classifier"].coef_[0]
+
+feature_importance = pd.DataFrame({
+    "Feature": all_features,
+    "Coefficient": coefficients
+})
+
+feature_importance = feature_importance.sort_values(by="Coefficient", ascending=False)
+
+feature_importance.head(10)</pre></div>
+                <div class="output-area">
+                    <div class="output-wrapper">
+                        <div class="cell-prompt output-prompt">Out[23]:</div>
+                        <div class="output-content">
+                            <div class="output-html">
+  <div id="df-40013df4-58e9-4be5-bcdf-69d292c088f8" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Feature</th>
+      <th>Coefficient</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>16</th>
+      <td>InternetService_Fiber optic</td>
+      <td>0.634195</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Contract_Month-to-month</td>
+      <td>0.582883</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>TotalCharges</td>
+      <td>0.536253</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>StreamingMovies_Yes</td>
+      <td>0.200938</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>StreamingTV_Yes</td>
+      <td>0.200481</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>PaymentMethod_Electronic check</td>
+      <td>0.197867</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>OnlineSecurity_No</td>
+      <td>0.156279</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>TechSupport_No</td>
+      <td>0.131503</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>MultipleLines_Yes</td>
+      <td>0.104649</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>SeniorCitizen</td>
+      <td>0.053449</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-40013df4-58e9-4be5-bcdf-69d292c088f8')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-40013df4-58e9-4be5-bcdf-69d292c088f8 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-40013df4-58e9-4be5-bcdf-69d292c088f8');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    </div>
+  </div>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Feature Importance Interpretation</h2><br><br>The most influential features affecting customer churn include:<br><br>- Contract type (month-to-month customers are more likely to churn)<br>- Monthly charges (higher charges increase churn probability)<br>- Tenure (long-term customers are less likely to churn)<br><br>These insights indicate that pricing strategy and contract structure play a critical role in customer retention.</div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell">##7. Conclusion<br><br>This project analyzed customer churn using a telecom dataset and applied multiple classification models.<br><br>Key findings:<br>- Logistic Regression was the best-performing model<br>- Contract type, tenure, and monthly charges are major factors influencing churn<br>- Customers with short-term contracts are more likely to leave<br><br>Recommendations:<br>- Offer incentives for long-term contracts<br>- Target high-risk customers with retention strategies<br>- Monitor customers with high monthly charges<br><br>This analysis can help telecom companies reduce churn and improve customer retention.</div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Operationalization</h2><br><br>To implement this model in a real-world setting:<br><br>- The model can be integrated into the company’s CRM system<br>- Predictions can be generated regularly to identify high-risk customers<br>- Marketing teams can target these customers with personalized offers<br><br>Challenges:<br>- Data must be continuously updated<br>- Model performance may degrade over time (model drift)<br>- Requires monitoring and retraining</div>
+            </div>
+        </div>
+    </div>
+    <footer class="export-footer">
+        Exported with <a href="https://www.runcell.dev/tool/ipynb-to-html">runcell</a> — convert notebooks to HTML or PDF anytime at runcell.dev.
+    </footer>
+</body>
+</html>
