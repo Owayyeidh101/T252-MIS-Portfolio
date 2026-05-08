@@ -16,6 +16,13 @@
 
 The objective of this project is to analyze customer churn behavior in a telecom company and build classification models to predict which customers are likely to leave.
 
+## Data Source
+The dataset used in this project is the **Telco Customer Churn** dataset, which is a collection of IBM Sample Data. It contains information about a fictional telecom company that provided home phone and internet services to 7,043 customers in California.
+
+* **Source:** [Kaggle - Telco Customer Churn](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
+* **Format:** CSV
+* **Size:** 7,043 records, 21 variables
+
 ---
 
 ## Project Milestones
