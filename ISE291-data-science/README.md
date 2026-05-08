@@ -106,13 +106,12 @@ Logistic Regression was selected as the final model due to its superior overall 
 
 ```
 ISE291-data-science/
-│
-├── M1-proposal.ipynb
-├── M2-cleaning.ipynb
-├── M3-eda.ipynb
-├── Final_Report.ipynb
-├── telco_churn_cleaned.xlsx
-└── README.md
+├─ Milestone 1 - Proposal/
+├─ Milestone 2 - Data Cleaning/
+├─ Milestone 3 - EDA/
+├─ data/
+├─ final-project/
+└─ README.md
 ```
 
 ---
