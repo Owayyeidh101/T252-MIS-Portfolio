@@ -101,15 +101,30 @@ The database was implemented using SQL and includes:
 
 ---
 
+## Demo Data Population
+
+To satisfy project requirements, each table in the database contains a minimum of 10 demo records. The inserted data simulates realistic maintenance operations within an industrial plant environment, including:
+
+* Multiple plant areas and equipment units  
+* Different maintenance types and work orders  
+* Technician assignments across maintenance activities  
+* Spare parts inventory and supplier relationships  
+
+The dataset was designed to support testing of SQL queries and demonstrate database functionality.
+
+---
+
 ## SQL Queries
 
-The system includes queries designed to support operational insights:
+The project includes five SQL queries designed to support operational analysis and maintenance decision-making:
 
-* Retrieve open work orders and their locations  
-* Count work orders by maintenance type  
-* Calculate total parts cost per work order  
-* Identify equipment with the highest maintenance frequency  
-* Detect parts below minimum inventory levels  
+1. Retrieve open work orders with equipment and plant area information  
+2. Count work orders grouped by maintenance type  
+3. Calculate total spare parts cost per work order  
+4. Identify equipment with the highest number of work orders  
+5. Detect spare parts below minimum inventory levels  
+
+Query outputs and screenshots are included in the final project report.
 
 ---
 
